@@ -7,7 +7,7 @@ import { promptQuietForLoudResponse, sendMessageAs, sendNarratorMessage } from '
 import { extension_settings, getContext, renderExtensionTemplateAsync } from '../../../extensions.js';
 import { registerSlashCommand } from '../../../slash-commands.js';
 
-const extensionName = 'third-party/Extension-Idle-Prompt';
+const extensionName = 'third-party/Extension-Idle-Prompter';
 
 let idleTimer = null;
 let repeatCount = 0;

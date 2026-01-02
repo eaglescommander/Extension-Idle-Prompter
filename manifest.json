@@ -1,5 +1,5 @@
 {
-    "display_name": "Idle Prompt",
+    "display_name": "Idle Prompter",
     "loading_order": 6,
     "requires": [],
     "optional": [
@@ -7,6 +7,6 @@
     "js": "index.js",
     "css": "style.css",
     "author": "eaglescommander",
-    "version": "1.0.1",
-    "homePage": "https://github.com/eaglescommander/Extension-Idle-Prompt"
+    "version": "1.0.2",
+    "homePage": "https://github.com/eaglescommander/Extension-Idle-Prompter"
 }
