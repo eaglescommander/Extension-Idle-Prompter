@@ -7,7 +7,7 @@ import { promptQuietForLoudResponse, sendMessageAs, sendNarratorMessage } from '
 import { extension_settings, getContext, renderExtensionTemplateAsync } from '../../../extensions.js';
 import { registerSlashCommand } from '../../../slash-commands.js';
 
-const extensionName = 'third-party/Extension-Idle-Prompt';
+const extensionName = 'third-party/Extension-Idle';
 
 let idleTimer = null;
 let repeatCount = 0;
@@ -356,7 +356,11 @@ function removeIdleListeners() {
 }
 
 function toggleIdle() {
-    toastr.info(`Idle mode ${'Brooo what in the fuck is this?'}.`);
+    extension_settings.idle.enabled = !extension_settings.idle.enabled;
+    $('#idle_enabled').prop('checked', extension_settings.idle.enabled);
+    $('#idle_enabled').trigger('input');
+    toastr.info(`Idle mode ${extension_settings.idle.enabled ? 'enabled' : 'disabled'}.`);
+    resetIdleTimer();
 }
 
 
@@ -372,5 +376,6 @@ jQuery(async () => {
     if ($('#idle_random_time').prop('checked')) {
         $('#idle_timer_min').parent().show();
     }
-    registerSlashCommand('sidle', toggleIdle, [], '– toggles idle mode', true, true);
+    registerSlashCommand('idle', toggleIdle, [], '– toggles idle mode', true, true);
+    registerSlashCommand('sip', sendIdlePrompt, [], '– sends an idle prompt', true, true);
 });
